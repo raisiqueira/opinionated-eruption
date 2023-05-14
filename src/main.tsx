@@ -5,10 +5,19 @@ import { disableReactDevTools } from '@fvilers/disable-react-devtools'
 
 import { App } from '@/App'
 
+import Providers from './App/providers'
 import './index.css'
 
 if (import.meta.env.MODE === 'production') {
   disableReactDevTools()
+}
+
+const AppWithProviders = () => {
+  return (
+    <Providers>
+      <App />
+    </Providers>
+  )
 }
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
@@ -21,14 +30,14 @@ if (import.meta.env.MODE === 'development') {
     .then(() => {
       root.render(
         <StrictMode>
-          <App />
+          <AppWithProviders />
         </StrictMode>,
       )
     })
 } else {
   root.render(
     <StrictMode>
-      <App />
+      <AppWithProviders />
     </StrictMode>,
   )
 }

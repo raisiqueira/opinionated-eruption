@@ -1,37 +1,39 @@
 import { useState } from 'react'
 
+import { Flex, useMantineColorScheme } from '@mantine/core'
+
 import './App.css'
 import reactLogo from './react.svg'
 
-import Providers from './providers'
-
 export const App = () => {
   const [count, setCount] = useState(0)
+  const { toggleColorScheme } = useMantineColorScheme()
 
   return (
-    <Providers>
-      <div className="App">
-        <div className="flex">
-          <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-            <img src="/icons/favicon.svg" className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-          <a href="https://github.com/eruptionjs/core" target="_blank" rel="noreferrer">
-            <span className="logo eruption">🌋</span>
-          </a>
-        </div>
-        <h1>Vite + React/TS = EruptionJS</h1>
-        <div className="card">
+    <div className="App">
+      <Flex align="center" justify="center">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+          <img src="/icons/favicon.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+        <a href="https://github.com/eruptionjs/core" target="_blank" rel="noreferrer">
+          <span className="logo eruption">🌋</span>
+        </a>
+      </Flex>
+      <h1>Vite + React/TS = EruptionJS</h1>
+      <Flex direction="column">
+        <Flex gap={3} justify="center">
           <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">Click on the Vite, React and Eruption logos to learn more</p>
-      </div>
-    </Providers>
+          <button onClick={() => toggleColorScheme()}>Toggle Theme</button>
+        </Flex>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </Flex>
+      <p className="read-the-docs">Click on the Vite, React and Eruption logos to learn more</p>
+    </div>
   )
 }
 

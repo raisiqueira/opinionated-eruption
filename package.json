@@ -33,8 +33,12 @@
     "npm": "^9.x.x"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@mantine/core": "^6.0.10",
+    "@mantine/hooks": "^6.0.10",
     "@tanstack/react-query": "^4.29.5",
     "@tanstack/react-query-devtools": "^4.29.6",
+    "axios": "^1.4.0",
     "react": "^18.x",
     "react-dom": "^18.x"
   },
@@ -42,10 +46,7 @@
     "@commitlint/cli": "^17.x",
     "@commitlint/config-conventional": "^17.x",
     "@commitlint/prompt-cli": "^17.x",
-    "@emotion/react": "^11.11.0",
     "@fvilers/disable-react-devtools": "^1.x",
-    "@mantine/core": "^6.0.10",
-    "@mantine/hooks": "^6.0.10",
     "@tanstack/eslint-plugin-query": "^4.29.4",
     "@testing-library/jest-dom": "^5.x",
     "@testing-library/react": "^14.x",
@@ -58,7 +59,6 @@
     "@vitejs/plugin-react-swc": "^3.x",
     "@vitest/coverage-c8": "^0.x",
     "@vitest/ui": "^0.x",
-    "axios": "^1.4.0",
     "c8": "^7.x",
     "eslint": "^8.x",
     "eslint-config-prettier": "^8.x",
