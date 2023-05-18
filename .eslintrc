@@ -22,7 +22,7 @@
       "jsx": true
     }
   },
-  "plugins": ["react", "@typescript-eslint", "import", "jsx-a11y", "react-hooks", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "import", "jsx-a11y", "react-hooks", "prettier", "react-refresh"],
   "rules": {
     "import/no-duplicates": "error",
     "import/no-self-import": "error",
@@ -57,6 +57,7 @@
         "endOfLine": "lf",
         "singleQuote": true
       }
-    ]
+    ],
+    "react-refresh/only-export-components": "warn"
   }
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Flex, useMantineColorScheme } from '@mantine/core'
+import { Button, Flex, useMantineColorScheme } from '@mantine/core'
 
 import './App.css'
 import reactLogo from './react.svg'
@@ -25,8 +25,8 @@ export const App = () => {
       <h1>Vite + React/TS = EruptionJS</h1>
       <Flex direction="column">
         <Flex gap={3} justify="center">
-          <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-          <button onClick={() => toggleColorScheme()}>Toggle Theme</button>
+          <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
+          <Button onClick={() => toggleColorScheme()}>Toggle Theme</Button>
         </Flex>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
