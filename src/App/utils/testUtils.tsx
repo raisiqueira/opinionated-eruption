@@ -1,4 +1,5 @@
 import { type PropsWithChildren, type ReactElement } from 'react'
+import { MemoryRouter } from 'react-router-dom'
 
 import { render } from '@testing-library/react'
 
@@ -12,6 +13,10 @@ type TestSetupProps = PropsWithChildren<Record<string, unknown>>
  * @returns the component wrapped in the Providers component.
  */
 export const testSetupWithProviders = (component: ReactElement) => {
-  const customWrapper = ({ children }: TestSetupProps) => <Providers>{children}</Providers>
+  const customWrapper = ({ children }: TestSetupProps) => (
+    <MemoryRouter>
+      <Providers>{children}</Providers>
+    </MemoryRouter>
+  )
   return render(component, { wrapper: customWrapper })
 }

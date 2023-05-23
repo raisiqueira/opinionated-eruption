@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Button, Flex, useMantineColorScheme } from '@mantine/core'
 
@@ -27,6 +28,9 @@ export const App = () => {
         <Flex gap={3} justify="center">
           <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
           <Button onClick={() => toggleColorScheme()}>Toggle Theme</Button>
+          <Link to="/repositories">
+            <Button>View Eruption Repositories</Button>
+          </Link>
         </Flex>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

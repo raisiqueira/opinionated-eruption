@@ -4,21 +4,13 @@ import { RouterProvider } from 'react-router-dom'
 
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
 
-import { routerSetup } from '@/App/routes/setup'
+import { routerSetup } from '@/App/routes/router'
 
 import Providers from './App/providers'
 import './index.css'
 
 if (import.meta.env.MODE === 'production') {
   disableReactDevTools()
-}
-
-const AppWithProviders = () => {
-  return (
-    <Providers>
-      <RouterProvider router={routerSetup} />
-    </Providers>
-  )
 }
 
 const root = createRoot(document.getElementById('root') as HTMLElement)
@@ -31,14 +23,18 @@ if (import.meta.env.MODE === 'development') {
     .then(() => {
       root.render(
         <StrictMode>
-          <AppWithProviders />
+          <Providers>
+            <RouterProvider router={routerSetup} />
+          </Providers>
         </StrictMode>,
       )
     })
 } else {
   root.render(
     <StrictMode>
-      <AppWithProviders />
+      <Providers>
+        <RouterProvider router={routerSetup} />
+      </Providers>
     </StrictMode>,
   )
 }

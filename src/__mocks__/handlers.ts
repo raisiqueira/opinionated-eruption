@@ -1,7 +1,71 @@
 import { rest } from 'msw'
 
 export const handlers = [
-  rest.get('https://api.github.com/repos/eruptionjs/core', (_, res, ctx) => {
-    return res(ctx.status(200), ctx.json({}))
+  rest.get('https://api.github.com/users/eruptionjs/repos', (_, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json([
+        {
+          id: 505442159,
+          name: 'core',
+          full_name: 'eruptionjs/core',
+          private: false,
+          html_url: 'https://github.com/eruptionjs/core',
+          description: 'Next Generation Boilerplate for React/Typescript, built on top of Vite ⚡️',
+          fork: false,
+          url: 'https://api.github.com/repos/eruptionjs/core',
+          stargazers_count: 298,
+          watchers_count: 298,
+          language: 'JavaScript',
+          forks_count: 13,
+          mirror_url: null,
+          open_issues_count: 4,
+          visibility: 'public',
+          forks: 13,
+          open_issues: 4,
+          watchers: 298,
+          default_branch: 'main',
+        },
+        {
+          id: 601837304,
+          name: 'create-eruption',
+          full_name: 'eruptionjs/create-eruption',
+          private: false,
+          owner: {
+            login: 'eruptionjs',
+            id: 109317960,
+            node_id: 'O_kgDOBoQPSA',
+            avatar_url: 'https://avatars.githubusercontent.com/u/109317960?v=4',
+            gravatar_id: '',
+            url: 'https://api.github.com/users/eruptionjs',
+            html_url: 'https://github.com/eruptionjs',
+            followers_url: 'https://api.github.com/users/eruptionjs/followers',
+            following_url: 'https://api.github.com/users/eruptionjs/following{/other_user}',
+            gists_url: 'https://api.github.com/users/eruptionjs/gists{/gist_id}',
+            starred_url: 'https://api.github.com/users/eruptionjs/starred{/owner}{/repo}',
+            subscriptions_url: 'https://api.github.com/users/eruptionjs/subscriptions',
+            organizations_url: 'https://api.github.com/users/eruptionjs/orgs',
+            repos_url: 'https://api.github.com/users/eruptionjs/repos',
+            events_url: 'https://api.github.com/users/eruptionjs/events{/privacy}',
+            received_events_url: 'https://api.github.com/users/eruptionjs/received_events',
+            type: 'Organization',
+            site_admin: false,
+          },
+          html_url: 'https://github.com/eruptionjs/create-eruption',
+          description: 'The Eruption CLI 🌋',
+          fork: false,
+          url: 'https://api.github.com/repos/eruptionjs/create-eruption',
+          size: 87,
+          stargazers_count: 2,
+          watchers_count: 2,
+          language: 'TypeScript',
+          forks_count: 0,
+          forks: 0,
+          open_issues: 1,
+          watchers: 2,
+          default_branch: 'main',
+        },
+      ]),
+    )
   }),
 ]
