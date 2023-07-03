@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 import { GitHubRepoResponse } from '@/App/types/github'
+import { queryClient } from '@/App/utils/queryUtils'
 
 /**
  * Get the github user data.
@@ -16,7 +17,19 @@ const getGithubUser = async (username: string) => {
 }
 
 const useGithubUser = (username: string) => {
-  return useQuery(['githubUser', username], () => getGithubUser(username))
+  return useQuery(['githubUser', username], {
+    queryFn: () => getGithubUser(username),
+    refetchOnWindowFocus: false,
+  })
 }
 
-export { useGithubUser, getGithubUser }
+// Example with RR loader
+
+const gitHubUserLoader = (username: string) => {
+  return queryClient.fetchQuery(['githubUser', username], {
+    queryFn: () => getGithubUser(username),
+    staleTime: 1000 * 60 * 60 * 24, // 24 hours, this is optional.
+  })
+}
+
+export { useGithubUser, getGithubUser, gitHubUserLoader }
